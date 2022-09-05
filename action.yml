@@ -1,0 +1,24 @@
+name: 'AWS ECS "Set Container Environment in Task Definition" Action for GitHub Actions'
+description: 'Sets environment variables in a container definition in an AWS ECS task definition JSON file, creating a new file.'
+branding:
+  icon: 'cloud'
+  color: 'purple'
+inputs:
+  task-definition:
+    description: 'The path to the ECS task definition JSON file'
+    required: true
+  container-name:
+    description: 'The name of the container defined in the containerDefinitions section of the ECS task definition'
+    required: true
+  env-var-name:
+    description: 'The name of the environment variable to set in the ECS task definition'
+    required: true
+  env-var-value:
+    description: 'The value of the environment variable to set in the ECS task definition'
+    required: true
+outputs:
+  task-definition:
+    description: 'The path to the rendered task definition file'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
